@@ -1,4 +1,9 @@
+set nocompatible
 set noswapfile
+let &t_Co=256
+
+filetype plugin indent on  " detect filetype
+call pathogen#infect()
 
 " ----------------------------------------------------------------------------
 "  Text Formatting
@@ -16,6 +21,7 @@ set nosmarttab             " fuck tabs
 set formatoptions+=n       " support for numbered/bullet lists
 "set textwidth=80           " wrap at 80 chars by default
 set virtualedit=block      " allow virtual edit in visual block ..
+syntax on
 
 " ----------------------------------------------------------------------------
 "  Remapping
@@ -60,7 +66,9 @@ set whichwrap+=<,>,h,l,[,] " backspace and cursor keys wrap to
 set shortmess=filtIoOA     " shorten messages
 set report=0               " tell us about changes
 set nostartofline          " don't jump to the start of line when scrolling
-
+colorscheme zenburn        " set colorscheme to zenburn
+let g:zenburn_high_Contrast = 1
+colors zenburn
 
 " ----------------------------------------------------------------------------
 " Visual Cues
@@ -74,6 +82,10 @@ set ignorecase             " ignore case when searching
 set nohlsearch             " don't highlight searches
 set visualbell             " shut the fuck up
 
+" ---------------------------------------------------------------------------
+" Eclim
+" ---------------------------------------------------------------------------
+let g:EclimProjectTreeAutoOpen = 1  " auto open project tree
 
 " ---------------------------------------------------------------------------
 "  Strip all trailing whitespace in file

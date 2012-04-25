@@ -1,7 +1,6 @@
 " rails.vim - Detect a rails application
-" Author:       Tim Pope <vimNOSPAM@tpope.org>
+" Author:       Tim Pope <http://tpo.pe/>
 " GetLatestVimScripts: 1567 1 :AutoInstall: rails.vim
-" URL:          http://rails.vim.tpope.net/
 
 " Install this file as plugin/rails.vim.  See doc/rails.txt for details. (Grab
 " it from the URL above if you don't have it.)  To access it from Vim, see
@@ -56,7 +55,7 @@ call s:SetOptDefault("rails_statusline",1)
 call s:SetOptDefault("rails_syntax",1)
 call s:SetOptDefault("rails_mappings",1)
 call s:SetOptDefault("rails_abbreviations",1)
-call s:SetOptDefault("rails_ctags_arguments","--exclude=\"*.js\"")
+call s:SetOptDefault("rails_ctags_arguments","--languages=-javascript")
 call s:SetOptDefault("rails_default_file","README")
 call s:SetOptDefault("rails_root_url",'http://localhost:3000/')
 call s:SetOptDefault("rails_modelines",0)
