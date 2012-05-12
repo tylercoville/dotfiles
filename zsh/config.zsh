@@ -6,6 +6,7 @@ fi
 
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
+export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r18
 
 fpath=($ZSH/zsh/functions $fpath)
 
