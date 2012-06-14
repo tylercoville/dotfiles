@@ -95,3 +95,15 @@ function! StripWhitespace ()
     exec ':%s/ \+$//gc'
 endfunction
 map ,s :call StripWhitespace ()<CR>
+
+" ---------------------------------------------------------------------------
+"  Add Tab Navigation
+" ---------------------------------------------------------------------------
+
+map th :tabfirst<CR>
+map tj :tabprevious<CR>
+map tk :tabnext<CR>
+map tl :tablast<CR>
+map tt :tabedit<Space>
+map tn :tabnext<Space>
+map tm :tabm<Space>
