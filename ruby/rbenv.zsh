@@ -1,17 +1,19 @@
-# rehash shims
-rbenv rehash 2>/dev/null
+if [[ ! -o interactive ]]; then
+    return
+fi
 
-# shell thing
-rbenv() {
-  command="$1"
-  if [ "$#" -gt 0 ]; then
-    shift
+compctl -K _rbenv rbenv
+
+_rbenv() {
+  local word words completions
+  read -cA words
+  word="${words[2]}"
+
+  if [ "${#words}" -eq 2 ]; then
+    completions="$(rbenv commands)"
+  else
+    completions="$(rbenv completions "${word}")"
   fi
 
-  case "$command" in
-  shell)
-    eval `rbenv "sh-$command" "$@"`;;
-  *)
-    command rbenv "$command" "$@";;
-  esac
+  reply=("${(ps:\n:)completions}")
 }
