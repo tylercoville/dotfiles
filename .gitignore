@@ -2,3 +2,8 @@ vim/vim.symlink/.netrwhist
 git/gitconfig.symlink
 eclim/eclim.symlink/workspace
 go/path
+.DS_Store
+*.pyc
+*._*
+vim/vim.symlink/bundle
+*.old
