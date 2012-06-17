@@ -37,7 +37,7 @@
         endif
 
     " Set plugins I want
-        let g:spf13_bundle_groups=['general', 'programming', 'go', 'ruby', 'python', 'javascript', 'html', 'misc']
+        let g:spf13_bundle_groups=['general', 'programming', 'go', 'ruby', 'javascript', 'html', 'misc']
 
     " General
         if count(g:spf13_bundle_groups, 'general')
@@ -101,6 +101,7 @@
             Bundle 'leshill/vim-json'
             Bundle 'groenewege/vim-less'
             Bundle 'taxilian/vim-web-indent'
+            Bundle 'kchmck/vim-coffee-script'
         endif
 
     " HTML
