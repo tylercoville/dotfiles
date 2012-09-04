@@ -42,6 +42,7 @@
     " General
         if count(g:spf13_bundle_groups, 'general')
             Bundle 'scrooloose/nerdtree'
+            Bundle 'jistr/vim-nerdtree-tabs'
             Bundle 'altercation/vim-colors-solarized'
             Bundle 'spf13/vim-colors'
             Bundle 'tpope/vim-surround'
@@ -79,7 +80,7 @@
         
     " Go
         if count(g:spf13_bundle_groups, 'go')
-            Bundle 'jhwhiteh/vim-golang'
+            Bundle 'jnwhiteh/vim-golang'
         endif
 
     " PHP
@@ -249,6 +250,11 @@
     " map jj to escape to normal
     inoremap jj <ESC>
 
+    " For those with sadly no function keys available
+    " toggle spelling use \s
+    imap <Leader>s <C-o>:setlocal spell! spelllang=en_us<CR>
+    nmap <Leader>s :setlocal spell! spelllang=en_us<CR>
+
     " Wrapped lines goes down/up to next row, rather than next line in file.
     nnoremap j gj
     nnoremap k gk
@@ -268,6 +274,7 @@
 
     " Yank from the cursor to the end of the line, to be consistent with C and D.
     nnoremap Y y$
+
 
     """ Code folding options
     nmap <leader>f0 :set foldlevel=0<CR>
@@ -376,13 +383,15 @@
         map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
         map <leader>e :NERDTreeFind<CR>
         nmap <leader>nt :NERDTreeFind<CR>
+        map <leader>t <Plug>NERDTreeTabsToggle<CR>
 
         let NERDTreeShowBookmarks=1
         let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
         let NERDTreeChDirMode=0
-        let NERDTreeQuitOnOpen=1
+        let NERDTreeQuitOnOpen=0
         let NERDTreeShowHidden=1
         let NERDTreeKeepTreeInNewTab=1
+        
     " }
 
     " Tabularize {
