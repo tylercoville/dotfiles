@@ -1,5 +1,7 @@
 # Set Default Shell to Zsh
-set-option -g default-shell /usr/local/bin/zsh
+if (which zsh > /dev/null) then
+  set-option -g default-shell `which zsh`
+fi
 
 # Set mouse and scolling stuff
 set-option -g mouse-select-pane on
