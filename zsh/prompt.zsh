@@ -12,8 +12,7 @@ git_dirty() {
   then
     echo ""
   else
-    if [[ $st == "nothing to commit (working directory clean)" ]]
-    then
+    if [[ $st == "nothing to commit (working directory clean)" ]] then
       echo "on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
     else
       echo "on %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
@@ -23,8 +22,15 @@ git_dirty() {
 
 git_prompt_info () {
  ref=$(git symbolic-ref HEAD 2>/dev/null) || return
-# echo "(%{\e[0;33m%}${ref#refs/heads/}%{\e[0m%})"
  echo "${ref#refs/heads/}"
+}
+
+ssh_host () {
+  if [[ -z "$SSH_CLIENT" ]]; then
+    echo ""
+  else
+    echo "(%{$fg_bold[blue]%}$USERNAME%{$reset_color%}@%{$fg_no_bold[magenta]%}`hostname -s`%{$reset_color%}) "
+  fi
 }
 
 unpushed () {
@@ -43,28 +49,9 @@ need_push () {
 rb_prompt(){
   if $(which rbenv &> /dev/null)
   then
-	  echo "%{$fg_bold[yellow]%}$(rbenv version | awk '{print $1}')%{$reset_color%}"
-	else
-	  echo ""
-  fi
-}
-
-# This keeps the number of todos always available the right hand side of my
-# command line. I filter it to only count those tagged as "+next", so it's more
-# of a motivation to clear out the list.
-todo(){
-  if $(which todo.sh &> /dev/null)
-  then
-    num=$(echo $(todo.sh ls +next | wc -l))
-    let todos=num-2
-    if [ $todos != 0 ]
-    then
-      echo "$todos"
-    else
-      echo ""
-    fi
+    echo "%{$fg_bold[yellow]%}$(rbenv version | awk '{print $1}')%{$reset_color%}"
   else
-    echo ""
+    echo "%{$fg_bold[yellow]%}system%{$reset_color%}"
   fi
 }
 
@@ -72,10 +59,10 @@ directory_name(){
   echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
 }
 
-export PROMPT=$'\n$(rb_prompt) in $(directory_name) $(git_dirty)$(need_push)\n› '
-# export PROMPT=$'\n$(directory_name) $(git_dirty)$(need_push)\n› '
+export PROMPT=$'\n$(ssh_host)$(rb_prompt) in $(directory_name) $(git_dirty)$(need_push)\n› '
+
 set_prompt () {
-  export RPROMPT="%{$fg_bold[cyan]%}$(todo)%{$reset_color%}"
+  #export RPROMPT="%{$fg_bold[cyan]%}`date`%{$reset_color%}"
 }
 
 precmd() {
