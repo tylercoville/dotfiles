@@ -8,6 +8,10 @@ export DOWNLOADS=~/Downloads/
 
 export SHELL=/bin/zsh
 
+export PAGER=less
+
+export EDITOR=vim
+
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit
 compinit

@@ -109,11 +109,12 @@
         if count(g:spf13_bundle_groups, 'html')
             Bundle 'HTML-AutoCloseTag'
             Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
+            Bundle 'cakebaker/scss-syntax.vim'
         endif
 
     " Ruby
         if count(g:spf13_bundle_groups, 'ruby')
-            Bundle 'rails.vim'
+            Bundle 'tpope/vim-rails'
         endif
 
     " Misc
