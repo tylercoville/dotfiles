@@ -32,12 +32,13 @@
         Bundle 'gmarik/vundle'
         Bundle 'MarcWeber/vim-addon-mw-utils'
         Bundle 'tomtom/tlib_vim'
+        Bundle 'christoomey/vim-tmux-navigator'
         if executable('ack')
             Bundle 'mileszs/ack.vim'
         endif
 
     " Set plugins I want
-        let g:spf13_bundle_groups=['general', 'programming', 'go', 'ruby', 'javascript', 'html', 'misc']
+        let g:spf13_bundle_groups=['general', 'programming', 'gradle', 'go', 'ruby', 'javascript', 'html', 'misc']
 
     " General
         if count(g:spf13_bundle_groups, 'general')
@@ -80,7 +81,15 @@
         
     " Go
         if count(g:spf13_bundle_groups, 'go')
-            Bundle 'jnwhiteh/vim-golang'
+            "Bundle 'jnwhiteh/vim-golang'
+            Bundle 'Blackrush/vim-gocode'
+            autocmd Filetype go setlocal tabstop=2 shiftwidth=2 noexpandtab
+        endif
+
+    " Groovy/Gradle
+        if count(g:spf13_bundle_groups, 'gradle')
+            Bundle 'vim-scripts/groovy.vim'
+            au BufNewFile,BufRead *.gradle setf groovy
         endif
 
     " PHP
@@ -110,6 +119,7 @@
             Bundle 'HTML-AutoCloseTag'
             Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
             Bundle 'cakebaker/scss-syntax.vim'
+            Bundle 'mattn/zencoding-vim'
         endif
 
     " Ruby
