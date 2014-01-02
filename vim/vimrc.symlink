@@ -120,6 +120,7 @@
             Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
             Bundle 'cakebaker/scss-syntax.vim'
             Bundle 'mattn/zencoding-vim'
+            Bundle 'othree/html5.vim'
         endif
 
     " Ruby
