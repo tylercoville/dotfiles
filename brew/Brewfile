@@ -1,0 +1,26 @@
+# Make sure using latest
+update
+
+# Update installed
+upgrade
+
+install git
+install git-flow
+install coreutils
+install go
+install grc
+install maven
+install mercurial
+install mysql
+install node
+install postgresql
+install rbenv
+install redis
+install rsync
+install ruby-build
+install s3cmd
+install sqlite
+install tmux
+install tomcat
+install wget
+install zsh
