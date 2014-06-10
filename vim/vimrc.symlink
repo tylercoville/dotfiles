@@ -19,22 +19,22 @@
     " }
 
     "
-    " Setup Bundle Support {
+    " Setup Plugin Support {
     " The next two lines ensure that the ~/.vim/bundle/ system works
-        set rtp+=~/.vim/bundle/vundle
-        call vundle#rc()
+        set rtp+=~/.vim/bundle/Vundle.vim
+        call vundle#begin()
     " }
 
 " }
 
-" Bundles {
+" Plugins {
     " Deps
-        Bundle 'gmarik/vundle'
-        Bundle 'MarcWeber/vim-addon-mw-utils'
-        Bundle 'tomtom/tlib_vim'
-        Bundle 'christoomey/vim-tmux-navigator'
+        Plugin 'gmarik/Vundle.vim'
+        Plugin 'MarcWeber/vim-addon-mw-utils'
+        Plugin 'tomtom/tlib_vim'
+        Plugin 'christoomey/vim-tmux-navigator'
         if executable('ack')
-            Bundle 'mileszs/ack.vim'
+            Plugin 'mileszs/ack.vim'
         endif
 
     " Set plugins I want
@@ -42,100 +42,101 @@
 
     " General
         if count(g:spf13_bundle_groups, 'general')
-            Bundle 'scrooloose/nerdtree'
-            Bundle 'jistr/vim-nerdtree-tabs'
-            Bundle 'altercation/vim-colors-solarized'
-            Bundle 'spf13/vim-colors'
-            Bundle 'tpope/vim-surround'
-            Bundle 'AutoClose'
-            Bundle 'kien/ctrlp.vim'
-            Bundle 'vim-scripts/sessionman.vim'
-            Bundle 'matchit.zip'
-            Bundle 'Lokaltog/vim-powerline'
-            Bundle 'Lokaltog/vim-easymotion'
-            Bundle 'godlygeek/csapprox'
-            Bundle 'jistr/vim-nerdtree-tabs'
-            Bundle 'flazz/vim-colorschemes'
-            Bundle 'corntrace/bufexplorer'
+            Plugin 'scrooloose/nerdtree'
+            Plugin 'jistr/vim-nerdtree-tabs'
+            Plugin 'altercation/vim-colors-solarized'
+            Plugin 'spf13/vim-colors'
+            Plugin 'tpope/vim-surround'
+            Plugin 'AutoClose'
+            Plugin 'kien/ctrlp.vim'
+            Plugin 'vim-scripts/sessionman.vim'
+            Plugin 'matchit.zip'
+            Plugin 'Lokaltog/vim-powerline'
+            Plugin 'Lokaltog/vim-easymotion'
+            Plugin 'godlygeek/csapprox'
+            Plugin 'flazz/vim-colorschemes'
+            Plugin 'corntrace/bufexplorer'
         endif
 
     " General Programming
         if count(g:spf13_bundle_groups, 'programming')
             " Pick one of the checksyntax, jslint, or syntastic
-            Bundle 'scrooloose/syntastic'
-            Bundle 'garbas/vim-snipmate'
-            Bundle 'spf13/snipmate-snippets'
+            Plugin 'scrooloose/syntastic'
+            Plugin 'garbas/vim-snipmate'
+            Plugin 'spf13/snipmate-snippets'
             " Source support_function.vim to support snipmate-snippets.
             if filereadable(expand("~/.vim/bundle/snipmate-snippets/snippets/support_functions.vim"))
                 source ~/.vim/bundle/snipmate-snippets/snippets/support_functions.vim
             endif
 
-            Bundle 'tpope/vim-fugitive'
-            Bundle 'scrooloose/nerdcommenter'
-            Bundle 'godlygeek/tabular'
+            Plugin 'tpope/vim-fugitive'
+            Plugin 'scrooloose/nerdcommenter'
+            Plugin 'godlygeek/tabular'
             if executable('ctags')
-                Bundle 'majutsushi/tagbar'
+                Plugin 'majutsushi/tagbar'
             endif
-            Bundle 'Shougo/neocomplcache'
+            Plugin 'Shougo/neocomplcache'
         endif
         
     " Go
         if count(g:spf13_bundle_groups, 'go')
-            "Bundle 'jnwhiteh/vim-golang'
-            Bundle 'Blackrush/vim-gocode'
+            "Plugin 'jnwhiteh/vim-golang'
+            Plugin 'Blackrush/vim-gocode'
             autocmd Filetype go setlocal tabstop=2 shiftwidth=2 noexpandtab
         endif
 
     " Groovy/Gradle
         if count(g:spf13_bundle_groups, 'gradle')
-            Bundle 'vim-scripts/groovy.vim'
+            Plugin 'vim-scripts/groovy.vim'
             au BufNewFile,BufRead *.gradle setf groovy
         endif
 
     " PHP
         if count(g:spf13_bundle_groups, 'php')
-            Bundle 'spf13/PIV'
+            Plugin 'spf13/PIV'
         endif
 
     " Python
         if count(g:spf13_bundle_groups, 'python')
             " Pick either python-mode or pyflakes & pydoc
-            Bundle 'klen/python-mode'
-            Bundle 'python.vim'
-            Bundle 'python_match.vim'
-            Bundle 'pythoncomplete'
+            Plugin 'klen/python-mode'
+            Plugin 'python.vim'
+            Plugin 'python_match.vim'
+            Plugin 'pythoncomplete'
         endif
 
     " Javascript
         if count(g:spf13_bundle_groups, 'javascript')
-            Bundle 'leshill/vim-json'
-            Bundle 'groenewege/vim-less'
-            Bundle 'taxilian/vim-web-indent'
-            Bundle 'kchmck/vim-coffee-script'
+            Plugin 'leshill/vim-json'
+            Plugin 'groenewege/vim-less'
+            Plugin 'taxilian/vim-web-indent'
+            Plugin 'kchmck/vim-coffee-script'
         endif
 
     " HTML
         if count(g:spf13_bundle_groups, 'html')
-            Bundle 'HTML-AutoCloseTag'
-            Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
-            Bundle 'cakebaker/scss-syntax.vim'
-            Bundle 'mattn/zencoding-vim'
-            Bundle 'othree/html5.vim'
+            Plugin 'HTML-AutoCloseTag'
+            Plugin 'ChrisYip/Better-CSS-Syntax-for-Vim'
+            Plugin 'cakebaker/scss-syntax.vim'
+            Plugin 'mattn/emmet-vim'
+            Plugin 'othree/html5.vim'
         endif
 
     " Ruby
         if count(g:spf13_bundle_groups, 'ruby')
-            Bundle 'tpope/vim-rails'
+            Plugin 'tpope/vim-rails'
         endif
 
     " Misc
         if count(g:spf13_bundle_groups, 'misc')
-            Bundle 'spf13/vim-markdown'
-            Bundle 'spf13/vim-preview'
-            Bundle 'tpope/vim-cucumber'
-            Bundle 'Puppet-Syntax-Highlighting'
+            Plugin 'spf13/vim-markdown'
+            Plugin 'spf13/vim-preview'
+            Plugin 'tpope/vim-cucumber'
+            Plugin 'Puppet-Syntax-Highlighting'
         endif
+    call vundle#end()
 " }
+"
 
 " General {
     set background=dark         " Assume a dark background
