@@ -1,4 +1,4 @@
-GRC=`which grc`
+GRC=`which grc 2> /dev/null`
 if [ "$TERM" != dumb ] && [ -n GRC ]
 then
     alias colourify="$GRC -es --colour=auto"
