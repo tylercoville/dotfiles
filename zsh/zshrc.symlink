@@ -8,10 +8,13 @@ export DOWNLOADS=~/Downloads/
 
 export SHELL=/bin/zsh
 
-# initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
+export PAGER=less
 
+export EDITOR=vim
+
+# initialize autocomplete here, otherwise functions won't be loaded
+autoload -Uz compinit
+compinit
 
 # source every .zsh file in this rep
 for config_file ($ZSH/**/*.zsh) source $config_file
