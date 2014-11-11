@@ -27,3 +27,19 @@ set -g status-left '#[fg=colour235,bg=colour252,bold] ❖  #S #[fg=colour253,bg=
 set -g window-status-format "#[fg=white,bg=colour234] #I #W "
 set -g window-status-current-format "#[fg=colour236,bg=colour39]⮀#[fg=colour25,bg=colour39,noreverse,bold] #I ⮁ #W #[fg=colour39,bg=colour234,nobold]⮀"
 set -g status-right '#[fg=colour254,bg=colour234]⮂#[fg=colour235,bg=colour252,bold] #(date +"%a %h %e %l:%M %p") '
+
+# Rebind pane tiling
+bind V split-window -h
+bind H split-window
+
+# force a reload of the config files
+unbind r
+bind r source-file ~/.tmux.conf
+
+# start window numbering at 1 for easier switching
+set -g base-index 1
+
+# unicode
+setw -g utf8 on
+set -g status-utf8 on
+

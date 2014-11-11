@@ -3,7 +3,7 @@ autoload colors && colors
 color_maven() {
   mvn $* | sed \
     -e "s/\[INFO\] \([^,]*\)/${fg_bold[cyan]}\[INFO\]${reset_color} \1/g" \
-    -e "s/\[WARN\] \([^,]*\)/${fg_bold[magenta]}\[WARN\]${reset_color} \1/g" \
+    -e "s/\[WARNING\] \([^,]*\)/${fg_bold[yellow]}\[WARNING\]${reset_color} \1/g" \
     -e "s/\[ERROR\] \([^,]*\)/${fg_bold[red]}\[ERROR\]${reset_color} \1/g" \
     -e "s/\(BUILD FAILURE.*\)/${fg_bold[red]}\1${reset_color}/g" \
     -e "s/\(BUILD SUCCESS.*\)/${fg_no_bold[green]}\1${reset_color}/g" \
