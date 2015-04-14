@@ -45,12 +45,21 @@ task :uninstall do
     if File.symlink?(target)
       FileUtils.rm(target)
     end
-    
+
     # Replace any backups made during installation
     if File.exists?("#{ENV["HOME"]}/.#{file}.backup")
       `mv "$HOME/.#{file}.backup" "$HOME/.#{file}"` 
     end
 
+  end
+end
+
+desc "Install vundler into ~/.vim/bundle"
+task :install_vundler do
+  if !Dir.exists?("#{ENV["HOME"]}/.vim/bundle/Vundle.vim")
+    `git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
+  else
+    puts "Already installed"
   end
 end
 
