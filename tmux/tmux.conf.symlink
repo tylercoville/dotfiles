@@ -12,7 +12,6 @@ set -g default-terminal "xterm-256color"
 
 setw -g utf8 on
 set -g status-utf8 on
-set-option -g utf-8 on
 
 set -g base-index 1
 
