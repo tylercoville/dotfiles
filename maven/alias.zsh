@@ -1,6 +1,6 @@
 autoload colors && colors
 color_maven() {
-  mvn $* | gsed --unbuffered \
+  mvn $* | sed --unbuffered \
     -e "s/\[INFO\] \([^,]*\)/${fg_bold[cyan]}\[INFO\]${reset_color} \1/g" \
     -e "s/\[WARN\] \([^,]*\)/${fg_bold[magenta]}\[WARN\]${reset_color} \1/g" \
     -e "s/\[ERROR\] \([^,]*\)/${fg_bold[red]}\[ERROR\]${reset_color} \1/g" \
