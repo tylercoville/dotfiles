@@ -57,6 +57,7 @@
             Bundle 'jistr/vim-nerdtree-tabs'
             Bundle 'flazz/vim-colorschemes'
             Bundle 'corntrace/bufexplorer'
+            Bundle 'chrisbra/csv.vim'
         endif
 
     " General Programming
