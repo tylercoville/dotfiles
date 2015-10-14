@@ -171,9 +171,7 @@
 " }
 
 " Vim UI {
-    if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/ir_black.vim"))
-        color ir_black                 " load a colorscheme
-    endif
+    color zenburn
     set tabpagemax=15               " only show 15 tabs
     set showmode                    " display the current mode
 
