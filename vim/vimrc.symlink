@@ -57,18 +57,13 @@
             Plugin 'flazz/vim-colorschemes'
             Plugin 'corntrace/bufexplorer'
             Plugin 'chrisbra/csv.vim'
+            Plugin 'elzr/vim-json'
         endif
 
     " General Programming
         if count(g:spf13_bundle_groups, 'programming')
             " Pick one of the checksyntax, jslint, or syntastic
             Plugin 'scrooloose/syntastic'
-            Plugin 'garbas/vim-snipmate'
-            Plugin 'spf13/snipmate-snippets'
-            " Source support_function.vim to support snipmate-snippets.
-            if filereadable(expand("~/.vim/bundle/snipmate-snippets/snippets/support_functions.vim"))
-                source ~/.vim/bundle/snipmate-snippets/snippets/support_functions.vim
-            endif
 
             Plugin 'tpope/vim-fugitive'
             Plugin 'scrooloose/nerdcommenter'
@@ -78,10 +73,9 @@
             endif
             Plugin 'Shougo/neocomplcache'
         endif
-        
+
     " Go
         if count(g:spf13_bundle_groups, 'go')
-            "Plugin 'jnwhiteh/vim-golang'
             Plugin 'Blackrush/vim-gocode'
             autocmd Filetype go setlocal tabstop=2 shiftwidth=2 noexpandtab
         endif
@@ -99,7 +93,6 @@
 
     " Python
         if count(g:spf13_bundle_groups, 'python')
-            " Pick either python-mode or pyflakes & pydoc
             Plugin 'klen/python-mode'
             Plugin 'python.vim'
             Plugin 'python_match.vim'
@@ -108,7 +101,6 @@
 
     " Javascript
         if count(g:spf13_bundle_groups, 'javascript')
-            Plugin 'leshill/vim-json'
             Plugin 'groenewege/vim-less'
             Plugin 'taxilian/vim-web-indent'
             Plugin 'kchmck/vim-coffee-script'
@@ -171,6 +163,7 @@
 " }
 
 " Vim UI {
+    let g:zenburn_transparent = 1
     color zenburn
     set tabpagemax=15               " only show 15 tabs
     set showmode                    " display the current mode
@@ -258,7 +251,7 @@
     map tj :tabprevious<CR>
     map tk :tabnext<CR>
     map tl :tablast<CR>
-    
+
     " map jj to escape to normal
     inoremap jj <ESC>
 
@@ -385,12 +378,6 @@
         nmap <Leader>ac <Plug>ToggleAutoCloseMappings
     " }
 
-    " SnipMate {
-        " Setting the author var
-        " If forking, please overwrite in your .vimrc.local file
-        let g:snips_author = 'Steve Francia <steve.francia@gmail.com>'
-    " }
-
     " NerdTree {
         map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
         map <leader>e :NERDTreeFind<CR>
@@ -403,7 +390,7 @@
         let NERDTreeQuitOnOpen=0
         let NERDTreeShowHidden=1
         let NERDTreeKeepTreeInNewTab=1
-        
+
     " }
 
     " Tabularize {
@@ -484,6 +471,13 @@
         nnoremap <silent> <leader>gp :Git push<CR>
      "}
 
+     " syntastic {
+        if !empty(glob("~/.rbenv/shims/ruby"))
+          let g:syntastic_ruby_mri_exec="~/.rbenv/shims/ruby"
+        endif
+
+     "}
+
      " neocomplcache {
         let g:neocomplcache_enable_at_startup = 1
         let g:neocomplcache_enable_camel_case_completion = 1
@@ -495,12 +489,6 @@
         " AutoComplPop like behavior.
         let g:neocomplcache_enable_auto_select = 0
 
-        " SuperTab like snippets behavior.
-        imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-
-        " Plugin key-mappings.
-        imap <C-k>     <Plug>(neocomplcache_snippets_expand)
-        smap <C-k>     <Plug>(neocomplcache_snippets_expand)
         inoremap <expr><C-g>     neocomplcache#undo_completion()
         inoremap <expr><C-l>     neocomplcache#complete_common_string()
 
