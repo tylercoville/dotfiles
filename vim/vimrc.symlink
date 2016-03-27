@@ -76,7 +76,8 @@
 
     " Go
         if count(g:spf13_bundle_groups, 'go')
-            Plugin 'Blackrush/vim-gocode'
+            "Plugin 'Blackrush/vim-gocode'
+            Plugin 'fatih/vim-go'
             autocmd Filetype go setlocal tabstop=2 shiftwidth=2 noexpandtab
         endif
 
@@ -164,7 +165,7 @@
 
 " Vim UI {
     let g:zenburn_transparent = 1
-    color zenburn
+    color zenburn-tyler
     set tabpagemax=15               " only show 15 tabs
     set showmode                    " display the current mode
 
