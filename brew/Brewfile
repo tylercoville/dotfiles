@@ -1,26 +1,26 @@
-# Make sure using latest
-update
-
-# Update installed
-upgrade
-
-install git
-install git-flow
-install coreutils
-install go
-install grc
-install maven
-install mercurial
-install mysql
-install node
-install postgresql
-install rbenv
-install redis
-install rsync
-install ruby-build
-install s3cmd
-install sqlite
-install tmux
-install tomcat
-install wget
-install zsh
+tap "homebrew/core"
+tap "homebrew/bundle"
+tap "homebrew/services"
+tap "caskroom/versions"
+tap "caskroom/cask"
+cask "java"
+brew "coreutils"
+brew "git"
+brew "gnu-sed", args: ["with-default-names"]
+brew "go"
+brew "grc"
+brew "maven"
+brew "mongodb", restart_service: true
+brew "mysql", restart_service: true
+brew "node"
+brew "postgresql", restart_service: true
+brew "ruby-build"
+brew "rbenv"
+brew "redis"
+brew "rsync"
+brew "tmux"
+brew "wget"
+brew "zsh"
+brew "bat"
+brew "prettyping"
+cask "caskroom/versions/docker-edge"
